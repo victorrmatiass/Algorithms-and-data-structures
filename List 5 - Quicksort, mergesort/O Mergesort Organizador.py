@@ -28,28 +28,28 @@ def merge(lista, inicio, meio, fim):
 
 
 def main():
-    lista = []
-    while True:
-        try:
-            entrada = input()
-        except:
-            break
-        else:
-            number = ""
-            for i in range(len(entrada)):
-                if entrada[i] != " ":
-                    number = number + entrada[i]
-                if i < len(entrada)-1:
-                    if entrada[i+1] == " " and entrada[i] != " ":
-                        lista.append(int(number))
-                        number = ''
-                else:
-                    if number != '':
-                        lista.append(int(number))
-                        number = ''
+    lista = [1]
+    # while True:
+    #     try:
+    #         entrada = str(input())
+    #     except:
+    #         break
+    #     else:
+    #         number = ""
+    #         for i in range(len(entrada)):
+    #             if entrada[i] != " ":
+    #                 number = number + entrada[i]
+    #             if i < len(entrada)-1:
+    #                 if entrada[i+1] == " " and entrada[i] != " ":
+    #                     lista.append(int(number))
+    #                     number = ''
+    #             else:
+    #                 if number != '':
+    #                     lista.append(int(number))
+    #                     number = ''
 
     mergesort(lista)
-    print(*lista)
+    print(*lista, end='')
 
 
 if __name__ == '__main__':
