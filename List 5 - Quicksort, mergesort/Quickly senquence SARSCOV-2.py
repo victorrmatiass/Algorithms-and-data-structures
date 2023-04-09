@@ -1,3 +1,5 @@
+impressao = []
+
 def particao(v, esq, dir):
     pivot = v[esq]
     i = esq
@@ -5,8 +7,7 @@ def particao(v, esq, dir):
     while True:
         i += 1
         while v[i] < pivot:
-            if i >= dir:
-                break
+            if i >= dir: break
             i += 1
         j -= 1
         while v[j] > pivot:
@@ -16,10 +17,10 @@ def particao(v, esq, dir):
             j -= 1
         if i >= j:
             break
-        print(v[i], v[j])
+        impressao.append([v[i], v[j]])
         v[i], v[j] = v[j], v[i]
     if v[esq] != v[j]:
-        print(v[esq], v[j])
+        impressao.append([v[esq], v[j]])
     v[esq], v[j] = v[j], v[esq]
     return j
 
@@ -37,14 +38,25 @@ def quicksort(v):
     qs(v, 0, N)
 
 
-lista1 = [3234, 26435, 26459, 19288, 6089, 21378, 115,
-          26860, 14362, 6695, 26292, 10251, 20579, 3403, 241]
-lista2 = [5, 4, 7, 8, 1]
-# quicksort(lista2)
-# entrada = str(input())
-# while entrada != "parar":
-#     lista.append(int(entrada.split()[0]))
-#     entrada = str(input())
+primeiro_print = False
 
-quicksort(lista1)
-print(lista1)
+
+def main():
+
+    lista = []
+    while True:
+        try:
+            entrada = str(input())
+            lista.append(int(entrada.split()[0]))
+        except EOFError:
+            break
+    quicksort(lista)
+    for x in range(len(impressao)):
+        if x == len(impressao)-1:
+            print(impressao[x][0], impressao[x][1], end='')
+            continue
+        print(impressao[x][0], impressao[x][1])
+
+
+if __name__ == '__main__':
+    main()
